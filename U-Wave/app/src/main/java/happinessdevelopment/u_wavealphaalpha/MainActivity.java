@@ -139,7 +139,7 @@ public class MainActivity extends FragmentActivity {
                         musicService.unMute(); // Unmute player
                         volume = true; // Change the volume since its playing now.
                         playButton.setImageResource(R.drawable.stop_icon); // Changing icon image.
-                    } else if (volume) {// If not mute
+                    } else {// If not mute
                         musicService.mute(); // Mute player
                         volume = false; // Change the volume since its not playing now.
                         playButton.setImageResource(R.drawable.play_icon); // Changing icon image.
@@ -301,7 +301,7 @@ public class MainActivity extends FragmentActivity {
                   */
                 StringBuffer buffer = new StringBuffer();
                 // Used for storing the buffered string.
-                String line = "";
+                String line;
 
                 /*
                  While loop that will continue until the string line (which was set to
@@ -378,7 +378,9 @@ public class MainActivity extends FragmentActivity {
                 // We finally change the text in the text boxes for each of the three components.
                 songName.setText(songInfo[0]);
                 albumName.setText(songInfo[1]);
-                artistName.setText("By " + songInfo[2]);
+                if (!(songInfo[2].equals(""))) {
+                    artistName.setText("By " + songInfo[2]);
+                }
             }
         }
     }
