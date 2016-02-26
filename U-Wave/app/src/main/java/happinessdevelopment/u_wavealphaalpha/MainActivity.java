@@ -16,6 +16,8 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.sbstrm.appirater.Appirater;
+
 import org.json.JSONObject;
 
 import java.io.BufferedReader;
@@ -80,9 +82,9 @@ public class MainActivity extends FragmentActivity {
     };
 
     /*
-     This notification manager allows us to inform the user
-      that this app is running in the background
-      */
+                 This notification manager allows us to inform the user
+                  that this app is running in the background
+                  */
     private NotificationManager mNotifyMgr;
 
     // Assigning our buttons
@@ -106,6 +108,8 @@ public class MainActivity extends FragmentActivity {
         // Default Stuff that happens when app created.
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main); // Setting our view to the main screen.
+
+        Appirater.appLaunched(this, null);
 
         // Create our notification icon
         makeNotificationIcon();
